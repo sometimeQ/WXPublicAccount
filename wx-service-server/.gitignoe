@@ -1,0 +1,10 @@
+#上传时忽略下边这个文件夹，/加在前面防止递归，加在后边也是可以的
+/node_modules 
+
+#忽略 .gitignore 这个文件本身
+.gitignore
+
+#生产文件夹
+/dist
+
+.DS_Store
