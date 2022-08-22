@@ -3,17 +3,17 @@ const router = require('koa-router')()
 // 这是渲染 views文件夹下面的网页的
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
-    title: 'Hello Koa 2!'
+    title: 'Hello some0ne!'
   })
 })
 
 router.get('/string', async (ctx, next) => {
-  ctx.body = 'koa2 string'
+  ctx.body = 'koa2 some0ne string'
 })
 
 router.get('/json', async (ctx, next) => {
   ctx.body = {
-    title: 'koa2 json'
+    title: 'koa2 some0ne json'
   }
 })
 
