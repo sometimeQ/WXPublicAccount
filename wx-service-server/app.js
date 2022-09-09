@@ -52,7 +52,7 @@ app.use(async (ctx, next) => {
 
 // routes 路由
 app.useRoutes = useRoutes;
-app.useRoutes();
+app.useRoutes(); 
 
 // error-handling 回调错误日志
 app.on('error', (err, ctx) => {
