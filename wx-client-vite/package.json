@@ -1,0 +1,33 @@
+{
+  "name": "wx-client-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev1": "vite",
+    "dev": "cross-env vite --mode development",
+    "product": "cross-env vite --mode production",
+    "build:test": "cross-env vite build --mode test",
+    "build": "vite build",
+    "build:product": "cross-env vite build --mode production",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cross-env": "^7.0.3",
+    "element-plus": "^2.2.16",
+    "js-cookie": "^3.0.1",
+    "nprogress": "^0.2.0",
+    "sass-loader": "^13.0.2",
+    "unplugin-icons": "^0.14.9",
+    "unplugin-vue-components": "^0.22.4",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.5",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.0",
+    "sass": "^1.54.8",
+    "vite": "^3.1.0"
+  }
+}

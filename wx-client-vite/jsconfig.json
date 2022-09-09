@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./src/*" // 对应vite.config.js下面的别名
+            ],
+            "~/*": [
+                "./*"
+            ]
+        }
+    }
+}
