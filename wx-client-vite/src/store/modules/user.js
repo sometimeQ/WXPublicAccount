@@ -116,6 +116,7 @@ const user = {
             })
         },
         setCollapse:({ commit, state }, flag) => {
+            // console.log(flag);
             commit(type.SET_COLLAPSE, flag);
         }
     },

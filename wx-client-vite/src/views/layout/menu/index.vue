@@ -68,7 +68,9 @@
     const defaultRouter = ref(sessionStorage.getItem('path') || '/tool/buid');
 
     // 菜单数组列表
-    const flag = vStore.getters['getCollapse'];
+    const flag = computed(() => {
+        return vStore.getters['getCollapse'];
+    })
     const routers = vStore.getters['getDefaultRouters'];
     // console.log(routers);
     menusList.value = routers;
