@@ -62,8 +62,9 @@ app.on('error', (err, ctx) => {
 // 监听端口号
 app.listen(port, () => {
   // 前端服务器IP和端口号
-  console.log(`server in running at http://localhost:${port}`);
-  // console.log(`server in running at https://leew.top:${port}`);
+  // console.log(`server in running at http://localhost:${port}`);
+   console.log(`server in running at https://leew.top:${port}`);
+   console.log(`server in running at http://leew.top:${port}`);
 })
 
 module.exports = app
