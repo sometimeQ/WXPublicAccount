@@ -18,13 +18,14 @@
 
 
 <style lang="scss" scoped>
-    .nav {
+.nav {
        width: 100%;
        height: 100%;
        line-height: 100%;
        display: flex;
        align-items: center;
        justify-content: space-between;
+       background: #545c64;
 
         .nav-left {
             

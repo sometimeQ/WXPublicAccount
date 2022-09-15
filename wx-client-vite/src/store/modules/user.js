@@ -6,7 +6,7 @@ import {
 import { getToken, deleteToken, setToken, setTokenTime } from  '@/utils/token';
 import { ElMessage } from "element-plus";
 import router from "@/router";
-import { login, getUserInfo, layout } from "@/network/login";
+import { login, getUserInfo, layout, testDemo } from "@/network/login";
 
 
 const user = {
@@ -118,6 +118,15 @@ const user = {
         setCollapse:({ commit, state }, flag) => {
             // console.log(flag);
             commit(type.SET_COLLAPSE, flag);
+        },
+        testNetwork:({ commit, state }, parama) => {
+            return new Promise((resolve, reject) => {
+                testDemo().then((response) => {
+                    resolve(response);
+                }).catch((error) => {
+                    reject(error);
+                })
+            })
         }
     },
     getters: {

@@ -1,5 +1,6 @@
 import axios from "axios";
 import cache from '@/plugins/cache';
+import store from "@/store";
 import { saveAs } from 'file-saver';
 import { ElNotification, ElMessageBox, ElMessage, ElLoading } from 'element-plus';
 import { getToken, diffTokenTime } from '@/utils/token';
@@ -15,9 +16,12 @@ let downloadLoadingInstance;
 // 是否显示重新登录
 export let isRelogin = { show: false };
 
+// console.log(import.meta.env.VITE_APP_BASE_API);
+
 const service =  axios.create({
+    // baseURL: import.meta.env.VITE_APP_BASE_API + '/api',
     baseURL: import.meta.env.VITE_APP_BASE_API,
-    timeout: 20000,
+    timeout: 30000,
     headers: {
         'Content-Type' :'application/json;charset=utf-8'}
 });
@@ -32,7 +36,7 @@ service.interceptors.request.use((config) => {
         // 让每个请求携带自定义token 请根据实际情况自行修改
         config.headers['Authorization'] = 'Bearer ' + getToken() 
         if (diffTokenTime()) {
-            store.dispatch('user/layout')
+            store.dispatch('LogOut');
             return Promise.reject(ElMessage('token失效了，请重新登录'));
         }
     }

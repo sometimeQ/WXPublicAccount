@@ -9,6 +9,8 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 // https://vitejs.dev/config/
 export default ({ mode }) => {
   return defineConfig({
+    // root: process.cwd,c
+    base: './',
     plugins: [
       vue(),
       Icons({
@@ -38,6 +40,7 @@ export default ({ mode }) => {
         }
       },
     },
+    /*
     server: {
       // 启动端口
       port: 3000,
@@ -47,6 +50,27 @@ export default ({ mode }) => {
         '/api': loadEnv(mode, process.cwd()).VITE_APP_BASE_API   // 代理网址
       },
       cors: true
+    }
+    */
+
+    // 配置前端服务地址和端口
+    server: {
+      port: 8081, // 前端端口
+      open: true,
+      host: 'localhost',
+      https: false,
+      cors: true,
+      // 设置反向代理，
+      proxy: {
+        // 选项写法
+        '/api': {
+          // target: loadEnv(mode, process.cwd()).VITE_APP_BASE_API, // 后端url
+          changeOrigin: true, // 域名需要
+          ws: true,
+          secure: false, // 不检查安全问题,可以接受运行在 HTTPS 上，可以使用无效证书的后端服务器
+          rewrite: (path) => path.replace(/^\/api/, ''), // 这个参数的目的是给代理命名后，在访问时把命名删除掉
+        }
+      }
     }
   })
 }

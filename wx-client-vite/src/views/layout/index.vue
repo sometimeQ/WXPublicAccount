@@ -10,13 +10,13 @@
                         <Avatar />
                     </el-icon>
                     <!-- 标题 -->
-                    <div v-if="isShowTitle">公众号管理系统</div>
+                    <div v-if="isShow">公众号管理系统</div>
                 </div>
                 <!-- 左侧菜单栏 -->
                 <Menu />
             </el-aside>
             <!-- 顶部导航栏以及内容区域 -->
-            <el-container class="container" :class={hidderContainer:!isShowTitle}>
+            <el-container class="container" :class={hidderContainer:!isShow}>
                 <!-- 导航栏 -->
                 <el-header class="header-container">
                     <Header />
@@ -41,7 +41,7 @@ import { useStore } from 'vuex';
 
 
 const vStore = useStore();
-const isShowTitle = computed(() => {
+const isShow = computed(() => {
     return vStore.getters['getCollapse'];
 })
 const flag = computed(() => {

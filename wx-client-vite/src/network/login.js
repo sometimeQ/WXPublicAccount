@@ -1,3 +1,5 @@
+import service from "./network";
+
 /**
  * 登陆, 模拟后端返回的登陆 信息
  */
@@ -60,4 +62,17 @@ export function layout(token) {
             reject('')
         }
     })
+};
+
+/**
+ * 测试
+ */
+export function testDemo() {
+    // return new Promise((resolve, reject) => {
+        return service({
+            url: '/test',
+            method: 'get',
+            params: {}
+        })
+    // })
 }

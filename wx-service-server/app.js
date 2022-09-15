@@ -21,10 +21,10 @@ const cors = require('koa2-cors');
 const port = 3000; 
 
 // error handler
-onerror(app)
+onerror(app);
 
 // 跨域
-// app.use(cors)
+app.use(cors());
 
 // middlewares
 app.use(bodyparser({
@@ -61,8 +61,9 @@ app.on('error', (err, ctx) => {
 
 // 监听端口号
 app.listen(port, () => {
-  // console.log(`server in running at http://localhost:${port}`);
-  console.log(`server in running at https://leew.top:${port}`);
+  // 前端服务器IP和端口号
+  console.log(`server in running at http://localhost:${port}`);
+  // console.log(`server in running at https://leew.top:${port}`);
 })
 
 module.exports = app
