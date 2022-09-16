@@ -6,6 +6,8 @@
     import { useStore } from 'vuex';
     import { computed, ref } from 'vue';
 
+
+    console.log('没有请求吗');
     const vStore = useStore();
     let message = ref('');
     vStore.dispatch('testNetwork').then((res) => {

@@ -55,7 +55,7 @@ export default ({ mode }) => {
 
     // 配置前端服务地址和端口
     server: {
-      port: 8081, // 前端端口
+      port: 3000, // 前端端口
       open: true,
       host: 'localhost',
       https: false,
@@ -67,7 +67,7 @@ export default ({ mode }) => {
           // target: loadEnv(mode, process.cwd()).VITE_APP_BASE_API, // 后端url
           changeOrigin: true, // 域名需要
           ws: true,
-          secure: false, // 不检查安全问题,可以接受运行在 HTTPS 上，可以使用无效证书的后端服务器
+          secure: true, // 不检查安全问题,可以接受运行在 HTTPS 上，可以使用无效证书的后端服务器
           rewrite: (path) => path.replace(/^\/api/, ''), // 这个参数的目的是给代理命名后，在访问时把命名删除掉
         }
       }
