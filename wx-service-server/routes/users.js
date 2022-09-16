@@ -1,11 +1,11 @@
 const router = require('koa-router')();
 
 // 这是渲染 views文件夹下面的网页的
-// router.get('/', async (ctx, next) => {
-//   await ctx.render('index', {
-//     title: 'Hello some0ne!'
-//   })
-// })
+router.get('/', async (ctx, next) => {
+  await ctx.render('index', {
+    title: 'Hello some0ne!'
+  })
+})
 
 router.get('/string', async (ctx, next) => {
   ctx.body = 'koa2 some0ne string'
