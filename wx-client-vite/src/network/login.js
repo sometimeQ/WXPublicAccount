@@ -76,3 +76,19 @@ export function testDemo() {
         })
     // })
 }
+
+export function testUpdate() {
+    return service({
+        url: '/update',
+        method: 'get',
+        params: {}
+    });
+}
+
+export function testUserData() {
+    return service({
+        url: '/user',
+        method: 'get',
+        params: {}
+    });
+}

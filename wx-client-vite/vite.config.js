@@ -8,6 +8,11 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
+
+  console.log(loadEnv(mode, process.cwd()).VITE_APP_BASE_API);
+  console.log('哈哈哈哈哈');
+
+
   return defineConfig({
     // root: process.cwd,c
     base: './',
@@ -55,20 +60,21 @@ export default ({ mode }) => {
 
     // 配置前端服务地址和端口
     server: {
-      port: 3000, // 前端端口
+      port: 8081, // 前端端口
       open: true,
-      host: 'localhost',
+      host: '0.0.0.0', 
+      //'localhost',
       https: false,
       cors: true,
-      // 设置反向代理，
+      // vue.config.js中配置的代理，打包到服务器之后这里的配置是无效的，实际代理到nginx去了，因此这里的代理只对本地运行有效
       proxy: {
         // 选项写法
-        '/api': {
-          // target: loadEnv(mode, process.cwd()).VITE_APP_BASE_API, // 后端url
+        '/testApi': {
+          target: loadEnv(mode, process.cwd()).VITE_APP_BASE_API, // 后端url
           changeOrigin: true, // 域名需要
           ws: true,
           secure: true, // 不检查安全问题,可以接受运行在 HTTPS 上，可以使用无效证书的后端服务器
-          rewrite: (path) => path.replace(/^\/api/, ''), // 这个参数的目的是给代理命名后，在访问时把命名删除掉
+          pathRewrite:{'^/testApi': '/'}, 
         }
       }
     }

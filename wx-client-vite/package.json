@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev1": "vite",
     "dev": "cross-env vite --mode development",
     "product": "cross-env vite --mode production",
+    "test": "cross-env vite --mode test",
     "build:test": "cross-env vite build --mode test",
     "build": "vite build",
     "build:product": "cross-env vite build --mode production",

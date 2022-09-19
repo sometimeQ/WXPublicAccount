@@ -6,7 +6,7 @@ import {
 import { getToken, deleteToken, setToken, setTokenTime } from  '@/utils/token';
 import { ElMessage } from "element-plus";
 import router from "@/router";
-import { login, getUserInfo, layout, testDemo } from "@/network/login";
+import { login, getUserInfo, layout, testDemo, testUpdate, testUserData } from "@/network/login";
 
 
 const user = {
@@ -122,6 +122,24 @@ const user = {
         testNetwork:({ commit, state }, parama) => {
             return new Promise((resolve, reject) => {
                 testDemo().then((response) => {
+                    resolve(response);
+                }).catch((error) => {
+                    reject(error);
+                })
+            })
+        },
+        testUpdate:({ commit, state }, parama) => {
+            return new Promise((resolve, reject) => {
+                testUpdate().then((response) => {
+                    resolve(response);
+                }).catch((error) => {
+                    reject(error);
+                })
+            })
+        },
+        testUserData:({ commit, state }, parama) => {
+            return new Promise((resolve, reject) => {
+                testUserData().then((response) => {
                     resolve(response);
                 }).catch((error) => {
                     reject(error);

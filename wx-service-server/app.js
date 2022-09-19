@@ -26,6 +26,8 @@ onerror(app);
 // 跨域
 app.use(cors());
 
+
+
 // middlewares
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text'],
